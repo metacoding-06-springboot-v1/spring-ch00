@@ -1,0 +1,67 @@
+{{> header}}
+
+<div class="container p-5">
+
+    <!-- 수정삭제버튼 -->
+    <div class="d-flex justify-content-end">
+        <button class="btn btn-secondary me-1">수정</button>
+        <button class="btn btn-outline-secondary">삭제</button>
+    </div>
+
+    <!-- 게시글내용 -->
+    <div>
+        <h2><b>제목</b></h2>
+        <hr />
+        <div class="d-flex justify-content-end">
+            작성자 : 익명
+        </div>
+        <div class="m-4 p-2">
+            내용
+        </div>
+    </div>
+
+    <!-- 댓글 -->
+    <div class="card mt-3">
+        <!-- 댓글등록 -->
+        <div class="card-body">
+            <form action="/replies/save" method="post">
+                <textarea class="form-control" rows="2" name="comment"></textarea>
+                <div class="d-flex justify-content-end">
+                <button class="btn btn-secondary mt-1">                        
+                        댓글등록    
+                    </button>
+                </div>
+            </form>
+        </div>
+
+        <!-- 댓글목록 -->
+        <div class="card-footer">
+            <b>댓글리스트</b>
+        </div>
+        <div class="list-group">
+            <!-- 댓글아이템 -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <div class="px-1 me-1 bg-secondary text-white rounded">익명</div>
+                    <div>댓글 내용2</div>
+                </div>
+                <form action="/replies/1/delete" method="post">
+                    <button class="btn">🗑</button>
+                </form>
+            </div>
+            <!-- 댓글아이템 -->
+            <div class="list-group-item d-flex justify-content-between align-items-center">
+                <div class="d-flex">
+                    <div class="px-1 me-1 bg-secondary text-white rounded">익명</div>
+                    <div>댓글 내용1</div>
+                </div>
+                <form action="/replies/1/delete" method="post">
+                    <button class="btn">🗑</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

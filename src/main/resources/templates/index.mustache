@@ -1,0 +1,29 @@
+{{> header}} 
+
+<div class="container mt-3">
+
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>번호</th>
+        <th>제목</th>
+        <th>내용</th>
+      </tr>
+    </thead>
+    <tbody>
+    {{#models}} 
+      <tr>
+        <td>{{id}}</td> 
+        <td>
+          <a href="/boards/{{id}}" style="color: inherit; text-decoration: none;">
+            {{title}}
+          </a>
+        </td>
+        <td>{{content}}</td>
+      </tr>
+      {{/models}}
+    </tbody>
+  </table>
+</div>
+</body>
+</html>

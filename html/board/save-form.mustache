@@ -1,0 +1,22 @@
+{{> header}}
+
+<div class="container p-5">
+
+    <div class="card">
+        <div class="card-header"><b>게시글 작성</b></div>
+        <div class="card-body">
+            <form action="/boards/save" method="post" enctype="application/x-www-form-urlencoded">
+                <div class="mb-3">
+                    <input type="text" class="form-control" placeholder="Enter title" name="title">
+                </div>
+                <div class="mb-3">
+                    <textarea class="form-control" rows="5" name="content"></textarea>
+                </div>
+                <button class="btn btn-secondary form-control">글쓰기</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
