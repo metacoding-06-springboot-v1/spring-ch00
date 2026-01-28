@@ -24,7 +24,7 @@ public class BoardService {
     }
 
     @Transactional
-    public void 게시글추가(BoardRequestDTO requestDTO) {
+    public void 게시글추가(BoardRequest.SaveDTO requestDTO) {
         Board board = new Board();
         board.setTitle(requestDTO.getTitle());
         board.setContent(requestDTO.getContent());
@@ -43,10 +43,10 @@ public class BoardService {
     }
 
     @Transactional
-    public void 게시글수정(Integer id, BoardRequestDTO requestDTO) {
+    public void 게시글수정(Integer id, BoardRequest.UpdateDTO requestDTO) {
         Board board = boardRepository.findById(id);
         // 더티 체킹
         board.setTitle(requestDTO.getTitle());
         board.setContent(requestDTO.getContent());
-    }
+    } // 트랜잭션 종료시 flush()
 }

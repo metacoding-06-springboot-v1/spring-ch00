@@ -32,7 +32,7 @@ public class BoardController {
     }
 
     @PostMapping("/boards/save")
-    public String save(BoardRequestDTO requestDTO) {
+    public String save(BoardRequest.SaveDTO requestDTO) {
         boardService.게시글추가(requestDTO);
         return "redirect:/";
     }
@@ -51,7 +51,7 @@ public class BoardController {
     }
 
     @PostMapping("/boards/{id}/update")
-    public String updateById(@PathVariable("id") Integer id, BoardRequestDTO requestDTO) {
+    public String updateById(@PathVariable("id") Integer id, BoardRequest.UpdateDTO requestDTO) {
         boardService.게시글수정(id, requestDTO);
         return "redirect:/boards/" + id;
     }
