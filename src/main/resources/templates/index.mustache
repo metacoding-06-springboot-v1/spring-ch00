@@ -12,24 +12,12 @@
     </thead>
     <tbody>
     {{#models}} 
-      <tr>
-        <td>
-          <a href="/boards/{{id}}" style="color: inherit; text-decoration: none;">
-            {{id}}
-          </a>
-        </td> 
-        <td>
-          <a href="/boards/{{id}}" style="color: inherit; text-decoration: none;">
-            {{title}}
-          </a>
-        </td>
-        <td>
-          <a href="/boards/{{id}}" style="color: inherit; text-decoration: none;">
-            {{content}}
-          </a>
-        </td>
+      <tr onclick="location.href='/boards/{{id}}'" style="cursor: pointer;">
+        <td>{{id}}</td> 
+        <td>{{title}}</td>
+        <td>{{content}}</td>
       </tr>
-      {{/models}}
+    {{/models}}
     </tbody>
   </table>
 </div>
