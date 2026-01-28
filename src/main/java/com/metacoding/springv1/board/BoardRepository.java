@@ -15,7 +15,6 @@ public class BoardRepository {
     public Board findById(int id) {
         Board board = em.find(Board.class, id);
         return board;
-
     }
 
     public List<Board> findAll() {
