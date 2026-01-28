@@ -22,7 +22,7 @@ public class BoardRepositoryTest {
         // given
         int id = 2;
         // when
-        Board board = boardRepository.findById(id).get();
+        Board board = boardRepository.findById(id);
         // eye
         System.out.println("=======================");
         System.out.println("Board Title : " + board.getTitle());
@@ -45,10 +45,9 @@ public class BoardRepositoryTest {
     @Test
     public void save_test() {
         // given
-        Board board = Board.builder()
-                .title("title3")
-                .content("content3")
-                .build();
+        Board board = new Board();
+        board.setTitle("title3");
+        board.setContent("content3");
         // when
         boardRepository.save(board);
         // eye
@@ -65,12 +64,12 @@ public class BoardRepositoryTest {
         // given
         int id = 2;
         // when
-        Board board = boardRepository.findById(id).get();
+        Board board = boardRepository.findById(id);
         board.setTitle("title-update");
         board.setContent("Update-test");
         em.flush();
         // eye
-        Board result = boardRepository.findById(id).get();
+        Board result = boardRepository.findById(id);
         System.out.println("=======================");
         System.out.println("Board title : " + result.getTitle());
         System.out.println("Board content : " + result.getContent());
@@ -80,7 +79,7 @@ public class BoardRepositoryTest {
     public void delete_test() {
         // given
         int id = 2;
-        Board board = boardRepository.findById(id).get();
+        Board board = boardRepository.findById(id);
         // when
         boardRepository.delete(board);
         em.flush();

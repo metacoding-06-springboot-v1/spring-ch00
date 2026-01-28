@@ -14,14 +14,14 @@ public class BoardController {
 
     @GetMapping("/")
     public String index(HttpServletRequest request) {
-        List<BoardResponse.DTO> boards = boardService.게시글목록();
+        List<Board> boards = boardService.게시글목록();
         request.setAttribute("models", boards);
         return "index";
     }
 
     @GetMapping("/boards/{id}")
     public String detail(HttpServletRequest request, @PathVariable("id") Integer id) {
-        BoardResponse.DetailDTO board = boardService.게시글상세(id);
+        Board board = boardService.게시글상세(id);
         request.setAttribute("model", board);
         return "board/detail";
     }
@@ -32,7 +32,7 @@ public class BoardController {
     }
 
     @PostMapping("/boards/save")
-    public String save(BoardRequest.SaveDTO requestDTO) {
+    public String save(BoardRequestDTO requestDTO) {
         boardService.게시글추가(requestDTO);
         return "redirect:/";
     }
@@ -45,13 +45,13 @@ public class BoardController {
 
     @GetMapping("/boards/{id}/update-form")
     public String updateForm(HttpServletRequest request, @PathVariable("id") Integer id) {
-        BoardResponse.DTO board = boardService.게시글수정폼(id);
+        Board board = boardService.게시글수정폼(id);
         request.setAttribute("model", board);
         return "board/update-form";
     }
 
     @PostMapping("/boards/{id}/update")
-    public String updateById(@PathVariable("id") Integer id, BoardRequest.UpdateDTO requestDTO) {
+    public String updateById(@PathVariable("id") Integer id, BoardRequestDTO requestDTO) {
         boardService.게시글수정(id, requestDTO);
         return "redirect:/boards/" + id;
     }
